@@ -1,21 +1,4 @@
 <html>
-
-<head>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
-
-
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/flat-ui.css" type="text/css">
-
-</head>
 <body>
 <p>Welcome</p>
 <?php 
@@ -51,7 +34,7 @@ if(isset($_POST["submit"]) && empty($dbErr)){
 
 $servername = "localhost";
 $username = "root";
-$password = "chebon01";
+$password = "";
 
 try {
     $conn = new PDO("mysql:host=$servername;", $username, $password);

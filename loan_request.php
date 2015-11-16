@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 require("functions.php");
 require_once("databases.php");
 
@@ -95,44 +95,61 @@ if(empty($errors) && isset($_POST["submit"])) {
 ?>
 
 <html>
+
+<head>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+
+
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/flat-ui.css" type="text/css">
+
+</head>
 <body>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-group col-xs-3 col-lg-offset-4 ">
 <?php if(isset($errors["loan_status"]) && empty($errors["id_noErr"]) && empty($errors["loanErr"])){
     echo $errors["loan_status"];
 } ?>
 ID Number: <br>
-<input type="text" name="id_no" value="<?php echo $id_no?>">
+<input type="text" name="id_no" value="<?php echo $id_no?>" class="form-control ">
 <?php echo  $errors["id_noErr"]; ?>
 <br><br>
 
 
 Loan: <br>
-<input type="text" name="loan" value="<?php echo $loan?>">
+<input type="text" name="loan" value="<?php echo $loan?>" class="form-control ">
 <?php echo $errors["loanErr"]; ?>
 <br><br>
 
 
 <?php $rate = 30; ?>
 Rate (%): <br>
-<input type="text" name="rate" value="<?php echo $rate . '%';?>" readonly>
+<input type="text" name="rate" value="<?php echo $rate . '%';?>" readonly class="form-control " >
 <?php echo  $errors["rateErr"]; ?>
 <br><br>
 
 
 Validity Period (Days): <br>
-<input type="text" name="period" value="<?php echo "30&nbsp;Days"?>" readonly/>
+<input type="text" name="period" value="<?php echo "30&nbsp;Days"?>" readonly class="form-control "/>
 <br><br>
 
 <?php
 $interest = $rate * $loan / 100; ?>
 Interest (<?php echo $rate;?>% of Loan): <br>
-<input type="text" name="interest" value="<?php echo $interest; ?>"   readonly/>
+<input type="text" name="interest" value="<?php echo $interest; ?>"   class="form-control " readonly/>
 <br><br>
 
 <?php $total = $interest + $loan; ?>
 Total Loan: <br>
-<input type="text" name="total" value="<?php echo $total?>" readonly/>
+<input type="text" name="total" value="<?php echo $total?>" class="form-control " readonly/>
 <br><br>
 <input type="submit" name="submit" value="Submit">
 <br>

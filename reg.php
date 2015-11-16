@@ -128,46 +128,64 @@ catch(PDOException $e)
 ?>
 
 <html>
+
+<head>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+
+
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/flat-ui.css" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+</head>
 <body>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post"  class="col-lg-offset-4 col-xs-3 TopPaddingOne_cm form-group has-feedback" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 First Name: <br>
-<input type="text" name="fname" value="<?php echo stripslashes($fname)?>">
+<input type="text" name="fname" value="<?php echo stripslashes($fname)?>" class="form-control ">
 <?php echo $errors["fnameErr"]; ?>
 <br><br>
-Last Name: <br> 
-<input type="text" name="lname" value="<?php echo stripslashes($lname)?>">
+Last Name: <br>
+<input type="text" name="lname" value="<?php echo stripslashes($lname)?>" class="form-control">
 <?php echo $errors["lnameErr"]; ?><span>
 <br><br>
 Gender: <br>
-<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Female")
+<input type="radio"  name="gender" <?php if (isset($gender) && $gender=="Female")
 echo "checked";?> value="Female">Female
 <input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male")
 echo "checked";?> value="Male">Male
 <?php echo $errors["genderErr"]; ?>
 <br><br>
 ID Number: <br>
-<input type="text" name="id_no" value="<?php echo $id_no?>">
+<input type="text" name="id_no" value="<?php echo $id_no?>" class="form-control ">
 <?php echo  $errors["id_noErr"]; ?>
 <br><br>
 E-mail: <br>
-<input type="text" name="email" value="<?php echo $email?>">
+<input type="text" name="email" value="<?php echo $email?>" class="form-control ">
 <?php echo $errors["emailErr"]; ?>
 <br><br>
 Username: <br> 
-<input type="text" name="username" value="<?php echo $username?>">
+<input type="text" name="username" value="<?php echo $username?>" class="form-control ">
 <?php echo  $errors["usernameErr"]; ?>
 <br><br>
 Password: <br> 
-<input type="password" name="password" value="">
+<input type="password" name="password" value="" class="form-control ">
 <?php echo $errors["passwordErr"]; ?>
 <br><br>
 Re-Enter Password: <br> 
-<input type="password" name="password1" value="">
+<input type="password" name="password1" value="" class="form-control ">
 <?php echo $errors["password1Err"]; ?>
 <br><br>
 
-	  <input type="submit" name="submit" value="Submit">
+	  <input type="submit" name="submit" value="Submit" >
         <br>
         <a href="login.php">Login</a>
 </form>
