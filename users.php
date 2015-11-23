@@ -1,65 +1,51 @@
+
 <?php
-require_once("databases.php");
-require_once("functions.php");
-navigation($user_id);
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT user_id AS loanee_id, fname, lname,gender, id_no, email, user_type, user_status,reg_date
-  FROM users WHERE user_type = 'Member'";
-    $result = $conn->query($sql);
-    $result->setFetchMode(PDO::FETCH_ASSOC);
-     echo "<table>";
- echo "<thead>";
- echo "<tr>";
-     echo "<th>UserId</th>";
-         echo "<th>First Name</th>";
-            echo "<th>Last Name</th>";
-            echo "<th>ID Number</th>";
-            echo "<th>Gender</th>";
-            echo " <th>E-mail</th>";
-            echo "<th>Role</th>";
-            echo "<th>Date Joined</th>";
-            echo "<th>User Status</th>";
-            echo "</tr>";
-        echo "</thead>";
-        echo "<tbody>";
 
-        while($loanee = $result->fetch()):
-        $loanee_user_id = test_input($loanee['loanee_id']);
-        $loanee_fname = test_input($loanee['fname']);
-        $loanee_lname = test_input($loanee['lname']);
-            $loanee_id_no = test_input($loanee['id_no']);
-        $loanee_gender = test_input($loanee['gender']);
-        $loanee_email = test_input($loanee['email']);
-        $loanee_user_type = test_input($loanee['user_type']);
-        $loanee_reg_date = date("j F Y g:i:s", strtotime($loanee['reg_date']));
-        $loanee_user_status = test_input($loanee['user_status']);
+ini_set('display_errors', 1);
+require ($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
-      echo "<tr>";
-      echo "<td> $loanee_user_id </td>";
-      echo "<td> $loanee_fname  </td>";
-      echo "<td> $loanee_lname  </td>";
-            echo "<td> $loanee_id_no  </td>";
-      echo "<td> $loanee_gender </td>";
-      echo "<td> $loanee_email  </td>";
-      echo "<td> $loanee_user_type  </td>";
-      echo "<td> $loanee_reg_date  </td>";
-      if($loanee_user_status === "Activated") {
-               echo "<td><a href='update_user_status.php?loanee_user_id=$loanee_user_id'>".$loanee_user_status."</a></td>";
-               } else {
-               echo "<td><a href='update_user_status.php?loanee_user_id=$loanee_user_id'>".$loanee_user_status."</a></td>";
-           }
+// configure database
+$dsn      = 'mysql:dbname=maxilo;host=localhost';
+$u = 'root';
+$p = 'chebon01';
+Cartalyst\Sentry\Facades\Native\Sentry::setupDatabaseResolver(
+    new PDO($dsn, $u, $p));
 
-            echo "</tr>";
-        endwhile;
-    echo "</tbody>";
-    echo "</table>";
-
-}
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-    $conn = null;
+// find all users
+$users = Cartalyst\Sentry\Facades\Native\Sentry::findAllUsers();
 ?>
+<html>
+<head></head>
+<body>
+<h1>Users</h1>
+<table border="1">
+    <tr>
+        <td>Email address</td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Status</td>
+        <td>Last login</td>
+    </tr>
+    <?php foreach ($users as $u): ?>
+        <?php $userArr = $u->toArray(); ?>
+        <tr>
+            <td><?php echo $userArr['email']; ?></td>
+            <td><?php echo isset($userArr['first_name']) ?
+                    $userArr['first_name'] : '-'; ?></td>
+            <td><?php echo isset($userArr['last_name']) ?
+                    $userArr['last_name'] : '-'; ?></td>
+            <td><?php echo ($userArr['activated'] == 1) ?
+                    'Active' : 'Inactive'; ?></td>
+            <td><?php echo isset($userArr['last_login']) ?
+                    $userArr['last_login'] : '-'; ?></td>
+            <td><a href="edit.php?id=<?php echo $userArr['id']; ?>">
+                    Edit</a></td>
+            <td><a href="delete.php?id=<?php echo $userArr['id']; ?>">
+                    Delete</a></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<a href="creation.php">Add new user</a>
+<body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "name": "maxilo/sentry",
+    "minimum-stability": "dev",
+    "require": {
+        "cartalyst/sentry": "2.0.*",
+        "illuminate/database": "4.0.*",
+        "ircmaxell/password-compat": "1.0.*"
+    }
+}

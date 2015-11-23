@@ -1,119 +1,79 @@
 <?php
-error_reporting(0);
-require("functions.php");
-require_once("databases.php");
-$username_emailErr = $passwordErr = "";
-$username_email = $password = $email = $username = "";
+// set up autoloader
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["username_email"])) {
-    $errors["username_emailErr"] = "Username/E-mail is required";
-  } else {
-    $username_email = test_input($_POST["username_email"]);
-  }
+ini_set('display_errors', 1);
+require ($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
-  if (empty($_POST["password"])) {
-    $errors["passwordErr"] = "Password is required";
-  } else {
-    $password = test_input($_POST["password"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$password)) {
-      $passwordErr = "Only letters and white space allowed";
-    }
-  }
 
-} 
 
-if( isset($_POST["submit"]))
-{
-if(empty($errors)){
-	$username = $_POST['username_email'];
-	$email = $_POST['username_email'];
-	$password = $_POST['password'];
 
-	$found_user = attempt_login($username, $password, $email);
-	if($found_user)
-	{
-        $user_id = $_SESSION["user_id"];
-		if($_SESSION["user_type"] === "Admin" && $_SESSION["user_status"] === "Activated"){
-            redirect("admin.php?id=$user_id");
-        } else {
-            $error_msg = "Sorry&nbsp;" . ucname($username) .", your account is temporarily deactivated by the admin.<br>";
-        }
+$throttleProvider = Cartalyst\Sentry\Facades\Native\Sentry::getThrottleProvider();
+$throttleProvider->enable();
 
-        if($_SESSION["user_type"] === "Member" && $_SESSION["user_status"] === "Activated") {
-            redirect("member.php?id=$user_id");
-        } else {
-            $error_msg = "Sorry&nbsp;" . ucname($username) .", your account is temporarily deactivated by the admin.<br>";
-        }
 
-	} else {
-        if(!$found_user){
-            $error_msg = $_SESSION["error_msg"];
-        }
-    }
 
+
+
+
+
+
+
+
+
+
+// configure database
+$dsn      = 'mysql:dbname=maxilo;host=localhost';
+$u = 'root';
+$p = 'chebon01';
+Cartalyst\Sentry\Facades\Native\Sentry::setupDatabaseResolver(new PDO($dsn, $u, $p));
+
+// if form submitted
+if (isset($_POST['submit'])) {
+    try {
+        // validate input
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_EMAIL);
+        $password = strip_tags(trim($_POST['password']));
+
+
+
+        $throttle = $throttleProvider->findByUserLogin($username);
+        $throttle->setAttemptLimit(3);
+        $throttle->setSuspensionTime(5);
+
+
+        // set login credentials
+        $credentials = array(
+            'email'    => $username,
+            'password' => $password,
+        );
+
+        // authenticate
+        // if authentication fails, capture failure message
+        Cartalyst\Sentry\Facades\Native\Sentry::authenticate($credentials, false);
+    } catch (Exception $e) {
+        $failMessage = $e->getMessage();
     }
 }
+
+// check if user logged in
+if (Cartalyst\Sentry\Facades\Native\Sentry::check()) {
+    $currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();
+}
 ?>
-
 <html>
-
-<head>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
-
-
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/flat-ui.css" type="text/css">
-    <link rel="stylesheet" href="css/custom.css" type="text/css">
-
-</head>
+<head></head>
 <body>
-
-<form  class="TopPadding " method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-
-
-<?php if(isset($error_msg)){ echo $error_msg; }?>
-
-    <div class="col-xs-3 col-lg-offset-4 form-group has-feedback BottomPadding">
-
-<input class="form-control" type="text"  placeholder="email/username" name="username_email" value="<?php echo $username_email?>">
-        <span class="form-control-feedback fui-user"></span>
-
-<?php echo $errors["username_emailErr"]; ?>
-
-
-
-
-    </div>
-
-    <div class="col-xs-3 col-lg-offset-4 form-group has-feedback bottompadding">
-
-
-<input  class="form-control"  placeholder="password"  type="password" name="password" value="<?php echo $password?>">
-        <span class="form-control-feedback fui-lock"></span>
-<?php echo $errors["passwordErr"]; ?>
- </div>
-
-    <div class="col-xs-3 col-lg-offset-4">
-        <a href="reg.php">Sign Up</a>
-        <a href="reset.php" class="col-lg-offset-1">Forgot Password</a>
-
-        <input type="submit"  name="submit"  value="submit" class="btn col-lg-offset-2">
-
-
-    </div>
-</form>
-
-
-
+<?php if (isset($currentUser)): ?>
+    Logged in as <?php echo $currentUser->getLogin(); ?>
+    <a href="logout.php">[Log out]</a>
+<?php else: ?>
+    <h1>Log In</h1>
+    <div><?php echo (isset($failMessage)) ? $failMessage : null; ?></div>
+    <form action="login.php" method="post">
+        Username: <input type="text" name="username" /> <br/>
+        Password: <input type="password" name="password" /> <br/>
+        <input type="submit" name="submit" value="Log In" />
+    </form>
+<?php endif; ?>
 </body>
-</html> 
+</html

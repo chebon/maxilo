@@ -3,6 +3,40 @@
 require("functions.php");
 require_once("databases.php");
 
+
+
+ini_set('display_errors', 1);
+require ($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
+
+
+
+$dsn = 'mysql:dbname=maxilo;host=localhost';
+$u = 'root';
+$p = 'chebon01';
+Cartalyst\Sentry\Facades\Native\Sentry::setupDatabaseResolver(new PDO($dsn, $u, $p));
+
+
+
+
+$currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();
+
+if (!$currentUser->hasAccess('view')) {
+    throw new Exception ('You don\'t have permission to view this page.');
+}
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
 navigation($user_id);
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
@@ -21,10 +55,10 @@ catch(PDOException $e) {
 $id_noErr = $loanErr = $rateErr = "";
 $id_no = $loan = $rate = "";
 
-/* --------------------------------------------------------validations------------------------------------------------  */
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    /* --------------------------------------------validate id_no----------------------------------------------------------------------------------  */
+
     if (empty($_POST["id_no"])) {
         $errors["id_noErr"] = "ID Number Is Required";
     } else {
@@ -37,12 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errors["id_noErr"] = "ID Number Does Not Match Records";
         }
     }
-    /* --------------------------------------------validate existence of a previous loan----------------------------------------------------------------------------------  */
+
     if($_SESSION["loan_status"] === "Un-Paid") {
         $errors["loan_status"] = "Sorry&nbsp; Your Acccount Has A Loan Balance.<br>";
     }
 
-    /* --------------------validate loan----------------------------------------------------------------------------------------------------------  */
+
     if (empty($_POST["loan"])) {
         $errors["loanErr"] = " Loan Is Required";
     } else {
@@ -91,6 +125,9 @@ if(empty($errors) && isset($_POST["submit"])) {
     }
     $conn = null;
 }
+
+*/
+
 
 ?>
 
