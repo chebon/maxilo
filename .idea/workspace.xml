@@ -2,57 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3433b9a8-5eeb-4fa7-85ec-0bd607ad8acc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/reset-password.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/reset-pwd.php" afterPath="$PROJECT_DIR$/reset-request.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/update_profile.php" afterPath="$PROJECT_DIR$/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_spinning.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_spinning.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/font-awesome/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/font-awesome/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/custom.css" afterPath="$PROJECT_DIR$/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/font-awesome/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/font-awesome/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/font-awesome/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/font-awesome/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/font-awesome/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/font-awesome/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loan_request.php" afterPath="$PROJECT_DIR$/loan_request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logout.php" afterPath="$PROJECT_DIR$/logout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/maxilo.iml" afterPath="$PROJECT_DIR$/.idea/maxilo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/font-awesome/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/font-awesome/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reset.php" afterPath="$PROJECT_DIR$/reset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/font-awesome/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/spinning.less" afterPath="$PROJECT_DIR$/font-awesome/less/spinning.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/font-awesome/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.php" afterPath="$PROJECT_DIR$/users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/font-awesome/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/ircmaxell/password-compat" afterPath="$PROJECT_DIR$/vendor/ircmaxell/password-compat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation" afterPath="$PROJECT_DIR$/vendor/symfony/translation" />
     </list>
     <ignored path="maxilo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,7 +44,7 @@
       <file leaf-file-name="loan_request.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loan_request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.826087" vertical-offset="2826" max-vertical-offset="3654">
+            <state vertical-scroll-proportion="-1.167939" vertical-offset="1098" max-vertical-offset="3654">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <marker date="1448275152518" expanded="true" signature="762:840" placeholder="SELECT * FRO..users..." />
@@ -297,10 +249,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="19" width="1940" height="1071" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32723358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32723358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -308,7 +260,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40661687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -753,7 +705,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loan_request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.826087" vertical-offset="2826" max-vertical-offset="3654">
+        <state vertical-scroll-proportion="-1.167939" vertical-offset="1098" max-vertical-offset="3654">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <marker date="1448275152518" expanded="true" signature="762:840" placeholder="SELECT * FRO..users..." />
