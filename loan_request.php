@@ -1,12 +1,18 @@
+
+<html>
+<head>
+    <title>loan request</title>
+    <link rel="stylesheet" type="css/bootstrap.min.css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="css/flat-ui.css" href="css/flat-ui.css">
+    <link rel="stylesheet" type="css/flat-ui.css" href="css/custom.css">
+</head>
+<body>
+
 <?php
-//error_reporting(0);
-require("functions.php");
-require_once("databases.php");
 
-
-
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
 require ($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
+/*require ($_SERVER['DOCUMENT_ROOT'].'/databases.php');*/
 
 
 
@@ -27,171 +33,117 @@ if (!$currentUser->hasAccess('view')) {
 
 
 
+ $currentUser = json_decode($currentUser, true);
+
+
+$user_id =  $currentUser['id'];
+
+$first_name = $currentUser['first_name'];
+$last_name = $currentUser['last_name'];
+$email = $currentUser['email'];
 
 
 
-
-
-/*
-
-
-
-
-navigation($user_id);
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    foreach( $stmt = $conn->query(
-        "SELECT * FROM users LEFT JOIN loans USING (user_id) WHERE user_id = '$user_id'") as $row) {
-        $row["id_no"];
-        $_SESSION["loan_status"] = $row["loan_status"];
-    }
-
-}
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-
-$id_noErr = $loanErr = $rateErr = "";
-$id_no = $loan = $rate = "";
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-    if (empty($_POST["id_no"])) {
-        $errors["id_noErr"] = "ID Number Is Required";
-    } else {
-        $id_no = test_input($_POST["id_no"]);
-        // check if only contains numbers
-        if (filter_var($id_no, FILTER_VALIDATE_INT) === false) {
-            $errors["id_no"] = "Only Numbers Are Allowed";
-        }
-        if ($row['id_no'] !== $id_no) {
-            $errors["id_noErr"] = "ID Number Does Not Match Records";
-        }
-    }
-
-    if($_SESSION["loan_status"] === "Un-Paid") {
-        $errors["loan_status"] = "Sorry&nbsp; Your Acccount Has A Loan Balance.<br>";
-    }
-
-
-    if (empty($_POST["loan"])) {
-        $errors["loanErr"] = " Loan Is Required";
-    } else {
-        $loan = test_input($_POST["loan"]);
-        // check if only contains numbers
-        if (filter_var($loan, FILTER_VALIDATE_INT) === false) {
-            $errors["loanErr"] = "Only Numbers Are Allowed";
-        }
-
-        if ($loan < 2000){
-            $errors["loanErr"] = "Loan Can Not Be Less Than 2000 ";
-        }
-
-        if ($loan > 5000){
-            $errors["loanErr"] = "Loan Can Not Be More Than 5000";
-        }
-    }
+$info = $_POST["amount"];
+$interest = 0.33;
 
 
 
+$total = ($info*$interest)+$info;
 
-}
 
-if(empty($errors) && isset($_POST["submit"])) {
-    $loan_status = "Un-Paid";
-    $loan = $_POST["loan"];
-    $rate = $_POST["rate"];
-    $period = $_POST["period"];
-    $interest = $rate * $loan / 100;
-    $total = $loan + $interest;
+
+if(isset($_POST["submit"])) {
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = 'chebon01';
+
+
     try {
 
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO loans (user_id, loan, rate, period, interest, total, loan_status)
-                          VALUES ('$user_id','$loan','$rate','$period','$interest','$total' , '$loan_status')";
-        // use exec() because no results are returned
-        $conn->exec($sql);
-        echo "Loan Procured Successfully<br>";
+
+
+
+        $dbh = new PDO("mysql:host=$hostname;dbname=maxilo", $username, $password);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        $sql = "INSERT INTO loans (user_id, amount, rate, total)
+VALUES ('" . $user_id . "','" . $_POST["amount"] . "','" .$interest . "','" .$total . "')";
+
+        $dbh->query($sql);
+
+        $dbh = null;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
     }
-    catch(PDOException $e)
-    {
-        echo $sql . "<br>" . $e->getMessage();
-    }
-    $conn = null;
+
 }
-
-*/
-
 
 ?>
 
-<html>
-
-<head>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 
 
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+<div class="  row no-gutter col-lg-offset-4 bonche-top">
+
+    <div class="col-xs-2">
+    <?php echo $first_name?>
+    </div>
+
+    <div class="col-xs-2">
+    <?php echo $last_name?>
+    </div>
+    <div class="col-xs-2">
+    <?php echo $email ?>
+    </div>
+</div>
 
 
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+<div class="container-fluid col-lg-6 col-lg-offset-4">
+
+    <div>
+    <h3>loan request form</h3>
+    <div id="login">
+        <hr/>
+        <form action="" method="post">
+
+            <div class="col-lg-offset-1">
+            <label>Amount  : </label>
+            <input type="text" name="amount" id="amount" required="required" placeholder="Please Enter amount"/><br /><br />
+            </div>
+
+            <div class="col-lg-offset-3">
+
+            <input type="submit" value=" Submit " name="submit"/><br />
+
+            </div>
+        </form>
 
 
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" href="css/flat-ui.css" type="text/css">
-
-</head>
-<body>
-
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-group col-xs-3 col-lg-offset-4 ">
-<?php if(isset($errors["loan_status"]) && empty($errors["id_noErr"]) && empty($errors["loanErr"])){
-    echo $errors["loan_status"];
-} ?>
-ID Number: <br>
-<input type="text" name="id_no" value="<?php echo $id_no?>" class="form-control ">
-<?php echo  $errors["id_noErr"]; ?>
-<br><br>
 
 
-Loan: <br>
-<input type="text" name="loan" value="<?php echo $loan?>" class="form-control ">
-<?php echo $errors["loanErr"]; ?>
-<br><br>
+
+    </div>
+
+    </div>
+
+    <div>
+        <h3>expected amount<?php echo $total ?></h3>
+
+    </div>
 
 
-<?php $rate = 30; ?>
-Rate (%): <br>
-<input type="text" name="rate" value="<?php echo $rate . '%';?>" readonly class="form-control " >
-<?php echo  $errors["rateErr"]; ?>
-<br><br>
 
+</div>
 
-Validity Period (Days): <br>
-<input type="text" name="period" value="<?php echo "30&nbsp;Days"?>" readonly class="form-control "/>
-<br><br>
-
-<?php
-$interest = $rate * $loan / 100; ?>
-Interest (<?php echo $rate;?>% of Loan): <br>
-<input type="text" name="interest" value="<?php echo $interest; ?>"   class="form-control " readonly/>
-<br><br>
-
-<?php $total = $interest + $loan; ?>
-Total Loan: <br>
-<input type="text" name="total" value="<?php echo $total?>" class="form-control " readonly/>
-<br><br>
-<input type="submit" name="submit" value="Submit">
-<br>
-  <?php  echo "<a href= member.php?id=$user_id>Back</a>"; ?>
-</form>
-</table>
 </body>
+
+
+
+
 </html>
+
+
